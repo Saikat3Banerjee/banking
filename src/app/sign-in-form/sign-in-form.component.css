@@ -1,0 +1,16 @@
+#userList
+{
+  border: 1px solid lightgreen;
+  border-collapse:collapse;
+  width:20%;
+  top:0%;
+  left:2%;
+  float:left;
+}
+
+a
+{
+  color:lightsalmon;
+  text-underline-position:alphabetic;
+  cursor:pointer;
+}
