@@ -1,0 +1,35 @@
+<div style="text-align:center">
+ 
+  <form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" *ngIf="showLogIn">
+
+   
+    <div id="returnMessage" [innerHTML]="returnMessage"></div>
+    <input type="text" formControlName="username" name="username" placeholder="username" />
+    <br />
+    <input type="password" formControlName="password" name="password" placeholder="password" />
+    <br />
+    <input type="submit" /><br />
+    Don't have an account yet ? <a (click)="switchFormDisplay()">Register</a>
+  </form>
+
+  <nav>
+    <a routerLink="/myaccount" routerLinkActive="active">submit</a>
+ 
+  </nav>
+  <router-outlet></router-outlet>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="signUpFormHandler()" *ngIf="showSignUp">
+
+    <h1>Sign Up</h1>
+    <div id="returnMessage" [innerHTML]="returnMessage"></div>
+    <input type="text" formControlName="username" name="username" placeholder="username" />
+    <br />
+    <input type="password" formControlName="password" name="password" placeholder="password" />
+    <br />
+    <input type="password" formControlName="repassword" name="repassword" placeholder=" re enter password" />
+    <br />
+    <input type="submit" /><br />
+    Already have an account? <a (click)="switchFormDisplay()">Log In</a>
+  </form>
+
+</div>
