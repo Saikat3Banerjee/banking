@@ -1,0 +1,93 @@
+<div class="container">
+<mat-sidenav-container fullscreen>
+        <mat-sidenav mode="side" opened>
+           
+          
+                <mat-accordion>
+                        <mat-expansion-panel>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                             Menu Options
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                      
+                            <a mat-raised-button routerLink="/accounts" style="width : 100%">My Account</a>
+                            <br>
+                            <a mat-raised-button routerLink='/transfer' style="width : 100%">Transfer</a>
+                            <br>
+                            <a mat-raised-button routerLink="." style="width : 100%">Settings</a>
+                            <br>
+                             <a mat-raised-button routerLink="." style="width : 100%">Contact Support</a>
+                            <br>
+                            <a mat-raised-button routerLink="/login" style="width : 100%">Logout</a>
+    
+                        </mat-expansion-panel>
+                    </mat-accordion>
+    
+            </mat-sidenav>
+        <mat-sidenav-content>
+
+
+                <h1>Hi</h1>
+                <p>Would You Like to Transfer Money to Another Account ?</p>
+
+             
+                <form [formGroup]="transferForm" (ngSubmit)="transferFormHandler()" >
+
+   
+                        <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
+                      
+                        
+                        <mat-form-field class="input-full-width">
+                        <mat-label>Select an Account</mat-label>
+                        <mat-select [(value)]="selected" formControlName="sender_account_number">
+                            <mat-option *ngFor="let Account of AccountList" value={{Account.account_number}}>{{Account.account_number}}: ${{Account.balance}}</mat-option>
+                         </mat-select>
+                        </mat-form-field>
+                        <br>
+                       
+
+
+                        <mat-form-field class="input-full-width">
+                                <mat-label>Select a Recipient from recipient list</mat-label>
+                                <mat-select [(value)]="chosen" formControlName="recipient_account_number">
+                                    <mat-option *ngFor="let Recipient of RecipientList" value={{Recipient.recipient_account_num}}>{{Recipient.recipient_alias}}</mat-option>
+                                    <mat-option (click)="this.router.navigate(['/addRecipient']);" value="Add Recipient"> Add Recipient</mat-option>
+                                </mat-select>
+                            
+                                </mat-form-field>
+                                <br />
+                       
+                        <!--<mat-form-field>
+                        <input matInput formControlName="recipient_account_number" type ="recipient_account_number"  placeholder="Recipients Account Number" /></mat-form-field> <br />-->
+
+                      
+
+                        <mat-form-field class="input-full-width">
+                        <input matInput formControlName="amount" type ="amount"  placeholder="Amount" /></mat-form-field><br>
+
+                        <mat-form-field class="input-full-width">
+                        <input matInput formControlName="note" type ="note"  placeholder="Description" /></mat-form-field><br>
+                    
+                    
+                    <button mat-raised-button > Transfer</button>  
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+                    </form>
+
+
+
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>

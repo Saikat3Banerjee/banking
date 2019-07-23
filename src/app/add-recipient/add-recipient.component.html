@@ -1,0 +1,54 @@
+<div class="container">
+<mat-sidenav-container fullscreen>
+        <mat-sidenav mode="side" opened>
+           
+            <a mat-raised-button routerLink="/accounts" style="width : 100%">My Account</a>
+            <br>
+            <a mat-raised-button routerLink='/transfer' style="width : 100%">Transfer</a>
+            <br>
+            <a mat-raised-button routerLink="." style="width : 100%">Settings</a>
+            <br>
+            <a mat-raised-button routerLink="." style="width : 100%">Contact Support</a>
+            <br>
+            <a mat-raised-button routerLink="/login" style="width : 100%">Logout</a>
+
+            
+        </mat-sidenav>
+        <mat-sidenav-content>
+
+                <h1>Add Recipient</h1>
+
+                <form [formGroup]="addRecipientForm" (ngSubmit)="addRecipientFormHandler()" >
+                
+                   
+                    <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
+                    <div *ngIf="displayAccountNum" class="container">
+
+                   <mat-form-field class="input-full-width" >
+                    <input matInput formControlName="recipient_account_number" name="recipient_account_number" placeholder="Recipient Account Number" /> </mat-form-field><br>
+                   
+                    Don't have an account number? <a type="button"  (click)="changeRecipientFinder()"  style="text-decoration: underline;">Add Recipient By Email</a>
+                        
+                    </div>
+
+                    <div *ngIf="!(displayAccountNum)">
+                        <mat-form-field class="input-full-width">
+                                <input matInput formControlName="email" name="email" placeholder="Email" /></mat-form-field><br>
+                               
+                                Don't have an email? <a type="button" (click)="changeRecipientFinder()" style="text-decoration: underline;">Add Recipient By Account Number</a>
+                                        
+                            </div>
+
+                            
+                <mat-form-field class="input-full-width">
+                 <input matInput formControlName="alias" type ="alias"  placeholder="Recipient Alias " />
+                </mat-form-field><br>
+                
+                <button mat-raised-button>Add Recipient</button><br />
+                </form>
+                
+                
+                 <router-outlet></router-outlet>
+               </mat-sidenav-content>
+               </mat-sidenav-container>
+               </div>

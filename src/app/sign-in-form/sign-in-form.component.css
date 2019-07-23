@@ -10,7 +10,30 @@
 
 a
 {
-  color:lightsalmon;
+  color:black;
   text-underline-position:alphabetic;
   cursor:pointer;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.full-form-width {
+    min-width: 250px;
+    max-width: 500px;
+    width:100%;
+}
+
+.input-full-width {
+    width:300px;
+}
+
+.container
+{
+font-size:1.3vw;
 }
