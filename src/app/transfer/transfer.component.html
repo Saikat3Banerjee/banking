@@ -1,43 +1,20 @@
 <div class="container">
 <mat-sidenav-container fullscreen>
-        <mat-sidenav mode="side" opened>
+        <mat-sidenav mode="side" opened style= "background-color:rgb(186,213,171);width:20%;">
            
           
-                <mat-accordion>
-                        <mat-expansion-panel>
-                          <mat-expansion-panel-header>
-                            <mat-panel-title>
-                             Menu Options
-                            </mat-panel-title>
-                          </mat-expansion-panel-header>
-                      
-                            <a mat-raised-button routerLink="/accounts" style="width : 100%">My Account</a>
-                            <br>
-                            <a mat-raised-button routerLink='/transfer' style="width : 100%">Transfer</a>
-                            <br>
-                            <a mat-raised-button routerLink="." style="width : 100%">Settings</a>
-                            <br>
-                             <a mat-raised-button routerLink="." style="width : 100%">Contact Support</a>
-                            <br>
-                            <a mat-raised-button routerLink="/login" style="width : 100%">Logout</a>
-    
-                        </mat-expansion-panel>
-                    </mat-accordion>
+                <app-navbar></app-navbar>
     
             </mat-sidenav>
         <mat-sidenav-content>
-
-
-                <h1>Hi</h1>
-                <p>Would You Like to Transfer Money to Another Account ?</p>
-
-             
+                <div class="outer">
+                        <div class="middle">
+                          <div class="inner">
+                            <div class="container">
                 <form [formGroup]="transferForm" (ngSubmit)="transferFormHandler()" >
 
-   
                         <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
                       
-                        
                         <mat-form-field class="input-full-width">
                         <mat-label>Select an Account</mat-label>
                         <mat-select [(value)]="selected" formControlName="sender_account_number">
@@ -70,7 +47,7 @@
                         <input matInput formControlName="note" type ="note"  placeholder="Description" /></mat-form-field><br>
                     
                     
-                    <button mat-raised-button > Transfer</button>  
+                    <button mat-raised-button style="background-color:rgb(233,167,119);width:20%;font-size:2.0vw;" > Transfer</button>  
 
 
                     
@@ -85,7 +62,7 @@
 
 
                     </form>
-
+</div></div></div></div>
 
 
         </mat-sidenav-content>

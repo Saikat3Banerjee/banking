@@ -66,20 +66,19 @@ export class TransferComponent implements OnInit {
       
     this.authenticateService.transfer(transfer,localStorage.getItem('usertoken')).subscribe( data =>
       {
-        if(data.transferId)
+        if(data.returnMessage)
         {
-          console.log(data.transferId);
-        }
-        else if (data.returnMessage)
-        {
-          console.log(data.returnMessage);
           this.returnMessage=data.returnMessage;
         }
-        else
+        else if (data.success)
+        {         
+          this.router.navigate(['/transferComplete']);
+        }
+        else 
         {
           console.log(data);
         }
-  
+        
    
       }); 
   

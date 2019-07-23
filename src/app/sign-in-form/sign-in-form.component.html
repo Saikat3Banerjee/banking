@@ -1,23 +1,27 @@
-<div class="container">
-<h1>Login</h1>
-
-<form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" class="form-full-width" >
-
-   
-    <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
-   <mat-form-field class="input-full-width">
-    <input matInput formControlName="username" name="username" placeholder="username" />
-    </mat-form-field><br>
-    
-   <mat-form-field class="input-full-width">
-    <input matInput formControlName="password" type ="password"  placeholder="password" />
-</mat-form-field><br>
-
-<button mat-raised-button>login</button><br />
-</form>
-
-
- <router-outlet></router-outlet>
-</div>
-
-
+<div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="container">
+            <h1>Login</h1>
+            
+            <form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" class="form-full-width" >
+            
+               
+                <div id="returnMessage" *ngIf="returnMessage" [innerHTML]="returnMessage" class="returnMessage" ></div>
+               <mat-form-field class="input-full-width">
+                <input matInput formControlName="username" name="username" placeholder="username" />
+                </mat-form-field><br>
+                
+               <mat-form-field class="input-full-width">
+                <input matInput formControlName="password" type ="password"  placeholder="password" />
+            </mat-form-field><br>
+            
+            <button mat-raised-button style="background-color:rgb(233,167,119);width:20%;font-size:2.0vw;">login</button><br />
+            </form>
+            
+            
+             <router-outlet></router-outlet>
+            </div>
+      </div>
+    </div>
+  </div>
