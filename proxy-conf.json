@@ -1,6 +1,7 @@
 {
     "/axle":{
-        "target":"http://localhost:3000",
+        "target":"http://10.173.200.170:3000/axle",
         "secure":false
     }
 }
+

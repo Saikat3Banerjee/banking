@@ -1,35 +1,23 @@
-<div style="text-align:center">
- 
-  <form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" *ngIf="showLogIn">
+<div class="container">
+<h1>Login</h1>
+
+<form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" class="form-full-width" >
 
    
-    <div id="returnMessage" [innerHTML]="returnMessage"></div>
-    <input type="text" formControlName="username" name="username" placeholder="username" />
-    <br />
-    <input type="password" formControlName="password" name="password" placeholder="password" />
-    <br />
-    <input type="submit" /><br />
-    Don't have an account yet ? <a (click)="switchFormDisplay()">Register</a>
-  </form>
+    <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
+   <mat-form-field class="input-full-width">
+    <input matInput formControlName="username" name="username" placeholder="username" />
+    </mat-form-field><br>
+    
+   <mat-form-field class="input-full-width">
+    <input matInput formControlName="password" type ="password"  placeholder="password" />
+</mat-form-field><br>
 
-  <nav>
-    <a routerLink="/myaccount" routerLinkActive="active">submit</a>
- 
-  </nav>
-  <router-outlet></router-outlet>
+<button mat-raised-button>login</button><br />
+</form>
 
-  <form [formGroup]="signUpForm" (ngSubmit)="signUpFormHandler()" *ngIf="showSignUp">
 
-    <h1>Sign Up</h1>
-    <div id="returnMessage" [innerHTML]="returnMessage"></div>
-    <input type="text" formControlName="username" name="username" placeholder="username" />
-    <br />
-    <input type="password" formControlName="password" name="password" placeholder="password" />
-    <br />
-    <input type="password" formControlName="repassword" name="repassword" placeholder=" re enter password" />
-    <br />
-    <input type="submit" /><br />
-    Already have an account? <a (click)="switchFormDisplay()">Log In</a>
-  </form>
-
+ <router-outlet></router-outlet>
 </div>
+
+

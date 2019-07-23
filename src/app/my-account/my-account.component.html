@@ -1,0 +1,58 @@
+
+<!---Begining of navbar, each button is routed to a seprate page-->
+<mat-sidenav-container fullscreen>
+    
+        <mat-sidenav mode="side" opened>
+           
+           <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                         Menu Options
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                        <div class="button-row-a">
+                        <a mat-raised-button routerLink="/accounts" style="width : 100%">My Account</a>
+                        <br>
+                        <a mat-raised-button routerLink='/transfer' style="width : 100%">Transfer</a>
+                        <br>
+                        <a mat-raised-button routerLink="." style="width : 100%">Settings</a>
+                        <br>
+                         <a mat-raised-button routerLink="." style="width : 100%">Contact Support</a>
+                        <br>
+                        <a mat-raised-button routerLink="/login" style="width : 100%">Logout</a>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+        </mat-sidenav>
+        <mat-sidenav-content>
+
+
+                <h1>Hi</h1>
+                <p>You're logged in to Axle Banking!!</p>
+
+
+<!---the account list is displayed in a grid like pattern each column receives the correct data from the backend -->
+<div *ngIf="AccountList">         
+<table  style="width: 55%; margin:0 auto; border: 1px solid #000; font-size:1.5vw;">
+        <tr>
+            <td>Account Type</td>
+            <td>Account Number</td>
+            <td>Balance</td>
+        </tr>
+      </table>
+
+        <div *ngFor= "let Account of AccountList"  >        
+           <app-account *ngIf="AccountList" [Account]="Account"></app-account>
+        </div>
+           
+        
+        
+        
+        
+    </div>  
+
+
+        </mat-sidenav-content>
+      </mat-sidenav-container>

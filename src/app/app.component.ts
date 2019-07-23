@@ -39,4 +39,16 @@ export class AppComponent
     this.users.push(userToAdd);
     console.log(userToAdd);
   }
+
 }
+
+/*
+window.addEventListener('beforeunload',function(e)
+
+{
+  
+  window.localStorage.removeItem('usertoken');
+  e.preventDefault();
+  e.returnValue='';
+})
+*/
