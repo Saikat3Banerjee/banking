@@ -23,7 +23,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TransferComponent } from './transfer/transfer.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AddRecipientComponent } from './add-recipient/add-recipient.component';
+import { TransferCompleteComponent } from './transfer-complete/transfer-complete.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 
@@ -39,6 +41,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AccountComponent,
     TransferComponent,
     AddRecipientComponent,
+    TransferCompleteComponent,
     NavbarComponent,
    
  

@@ -57,9 +57,12 @@ constructor(private formBuilder: FormBuilder, private http: HttpClient, private 
   var credentials={username: this.f.username.value, password:this.f.password.value}
   this.authenticateService.verifyFullCredentials(credentials).subscribe( data =>
     {
+      
       this.returnMessage=data.returnMessage;
+
       if(localStorage.getItem('usertoken')) // check if token was created (meaning succesful login)
       {
+        //console.log(localStorage.getItem('usertoken'));
       //send to my account page
       this.router.navigate(['/accounts']);
       }
