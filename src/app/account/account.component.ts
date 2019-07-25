@@ -22,21 +22,9 @@ export class AccountComponent implements OnInit {
     {
       //1 for checking and 0 for saving
       
-     var typeNum=this.Account.account_number.toString()[11];
+     this.type=this.Account.account_type;
      
-     switch (typeNum)
-     {
-      case "1":
-        this.type="Checking Account";
-        break;
-      case "0":
-        this.type="Saving Account";
-        break;
-      default:
-        this.type="Other";
-
-
-     }
+     
         
      
     }

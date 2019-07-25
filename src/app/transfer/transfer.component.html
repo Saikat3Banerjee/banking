@@ -13,7 +13,7 @@
                             <div class="container">
                 <form [formGroup]="transferForm" (ngSubmit)="transferFormHandler()" >
 
-                        <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>
+                        <div id="returnMessage" [innerHTML]="returnMessage" *ngIf="returnMessage" class="returnMessage"></div>
                       
                         <mat-form-field class="input-full-width">
                         <mat-label>Select an Account</mat-label>

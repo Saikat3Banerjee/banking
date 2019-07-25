@@ -18,14 +18,14 @@
                             <div *ngIf="AccountList">         
                           <table class="accountTable" style=" background-color:rgb(233,167,119);">
                                   <tr>
-                                      <td>Account Type</td>
-                                      <td>Account Number</td>
-                                      <td>Balance</td>
+                                      <td style="width:25%; text-align: center;">Account Type</td>
+                                      <td style="width:50%; text-align: center;">Account Number</td>
+                                      <td style="width:25%; text-align: right;">Balance</td>
                                   </tr>
                                 </table>
                           
                                   <div *ngFor= "let Account of AccountList"  >        
-                                     <app-account *ngIf="AccountList" [Account]="Account"></app-account>
+                                   <app-account *ngIf="AccountList" [Account]="Account"></app-account>
                                   </div>
                                            
                               </div>  

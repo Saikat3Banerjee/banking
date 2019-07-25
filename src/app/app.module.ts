@@ -25,6 +25,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { AddRecipientComponent } from './add-recipient/add-recipient.component';
 import { TransferCompleteComponent } from './transfer-complete/transfer-complete.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SupportComponent } from './support/support.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 
 
@@ -43,6 +46,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddRecipientComponent,
     TransferCompleteComponent,
     NavbarComponent,
+    SupportComponent,
+    SettingsComponent,
+    
+  
    
  
   ],

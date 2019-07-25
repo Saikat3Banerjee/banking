@@ -13,24 +13,35 @@ import { TransferComponent } from '../transfer/transfer.component';
 
 export class MyAccountComponent implements OnInit {
 
-  AccountList :any
-  
+  AccountList :any;
+  SavingAccounts :any;
+  CheckingAccounts :any;
 
   constructor(private http: HttpClient, private authenticateService: AuthenticateService, private router:Router) { }
 
   ngOnInit()
   {
-    if(!localStorage.getItem('usertoken'))
-    {
-      this.router.navigate(['/login']);
-    }
     if(localStorage.getItem('usertoken')) // check if token was created (meaning succesful login
     {
      
       this.authenticateService.getAccounts(localStorage.getItem('usertoken')).subscribe( (data)=>{
         
         this.AccountList=data;
+        this.SavingAccounts=this.AccountList.map((account)=>{
+          
+          if (account.account_type=="Saving")
+          {
+
+            return account;
+          }          
         });
+        console.log(this.SavingAccounts);
+        });
+        
+    }
+    else
+    {
+      this.router.navigate(['/login']);
     }
 
   
