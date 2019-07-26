@@ -1,0 +1,75 @@
+#userList
+{
+  border: 1px solid lightgreen;
+  border-collapse:collapse;
+  width:20%;
+  top:0%;
+  left:2%;
+  float:left;
+}
+
+a
+{
+  color:black;
+  text-underline-position:alphabetic;
+  cursor:pointer;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+.full-form-width {
+    min-width: 250px;
+    max-width: 500px;
+    width:100%;
+}
+
+.input-full-width {
+    width:80%;
+}
+
+.container
+{
+font-size:2.0vw;
+border:1px solid black;
+border-radius:20px;
+padding:5%;
+background-color: rgb(186,213,171);
+/*R: 157 G: 194 B: 89  axle informatics rgb code green*/
+/*R: 230 G: 136 B: 74 axle informatics rgb code orange*/
+/*	R: 233 G: 167 B: 119 orange from google doc */ 
+/*R: 186 G: 213 B: 171 green from google doc */ 
+}
+
+.returnMessage
+{
+ border: 1px solid red;
+ color:red;
+ font-size:2.0vw;
+ border-radius:20px;
+}
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  /*whatever width you want*/
+}
