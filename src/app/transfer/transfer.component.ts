@@ -2,7 +2,7 @@ import { Component, OnInit ,Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { AuthenticateService } from '../authenticate.service';
-import {Router} from '@angular/router'
+import {Router,NavigationExtras} from '@angular/router'
 import { map } from 'rxjs/operators'
 
 @Component({
@@ -71,8 +71,13 @@ export class TransferComponent implements OnInit {
           this.returnMessage=data.returnMessage;
         }
         else if (data.success)
-        {         
-          this.router.navigate(['/transferComplete']);
+        {  
+          var navigationExtras: NavigationExtras = {
+            queryParams: {
+                "TransferInput":JSON.stringify(data.transfer)
+            }
+        };
+         this.router.navigate(['/transferComplete'],navigationExtras);
         }
         else 
         {

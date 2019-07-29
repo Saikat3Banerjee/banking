@@ -23,11 +23,6 @@ export class SignInFormComponent implements OnInit
 
 logInForm: FormGroup;
 
-
- @Input() userList: UserComponent[];
- 
-
-
  returnMessage:any;
   
 constructor(private formBuilder: FormBuilder, private http: HttpClient, private authenticateService: AuthenticateService, private router:Router)

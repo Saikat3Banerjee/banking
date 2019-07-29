@@ -3,26 +3,39 @@
        <app-navbar></app-navbar>
     </mat-sidenav>
     <mat-sidenav-content>
-
         <div class="outer">
             <div class="middle">
               <div class="inner">
                 <div class="container">
-                  <h1>Welcome to Settings which type of information would you like to change?</h1>
-
-                  <mat-form-field class="input-full-width">
-                      <mat-label>Select Infomation</mat-label>
-                      <mat-select>
-                          <mat-option>Email</mat-option>
-                          <mat-option>Password</mat-option>
-                      </mat-select>
-                  
+                  <h1>Welcome to Settings<br>Please enter new infromation to be updated</h1>
+                  <p>
+                      <mat-form-field appearance="legacy" class="input-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Enter a New Password">
                       </mat-form-field>
-                    </div>
-              </div>
-            </div>
-          </div>
-    
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+                    </p>
+                    <p> 
+                        <mat-form-field appearance="legacy" class="input-full-width">
+                          <mat-label>Income</mat-label>
+                          <input matInput placeholder="Enter your yearly income">
+                        </mat-form-field>
+                      
+                    </p>
+                    <p>
+                      <mat-form-field appearance="legacy" class="input-full-width">
+                          <mat-label>Telephone Number</mat-label>
+                          <input matInput placeholder="Enter a new Phone number">
+                        </mat-form-field>
+                      </p>
+                      <button  style="background-color:rgb(233,167,119);width:35%;font-size:2.0vw;">Confrim</button>  
+                       
+                      
+        </div>
+        </div>
+      </div>
+    </div>
+
+     
+     </mat-sidenav-content>
+ </mat-sidenav-container>
 

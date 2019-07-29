@@ -1,3 +1,29 @@
-<h2> TRANSFER COMPLETE</h2>
+<div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <div class="container">
 
+                    <div id="returnMessage" *ngIf="returnMessage" [innerHTML]="returnMessage" class="returnMessage" ></div>
+                    <br />
+
+
+<div *ngIf="Transfer">
+<h1> TRANSFER COMPLETE</h1>
+
+<h3>Sender account number: {{Transfer.sender_account_number}}</h3> 
+<br />
+<h3>Recipient account number: {{Transfer.recipient_account_number}}</h3>
+<br />
+<h3>Transfer Amount: ${{Transfer.amount}}</h3>
+<br />
+<h3>Transfer Note</h3>
+<p>{{Transfer.note}}</p>
 <a mat-raised-button routerLink="/accounts" style="font-size:1.3vw; ">DONE</a>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
