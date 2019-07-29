@@ -3,15 +3,17 @@
   
   width:10%;
 }
-
+.actionButton
+{
+    width:10%;
+    margin: 2%;
+}
 .accountTable
 {
   width: 100%; 
   margin:0 auto;
    border-bottom: 1px solid #000; 
-   font-size:1.2vw;
-   background-color:whitesmoke;
-   text-align: center;
+   font-size:2vw;
 }
 
 .container
@@ -22,6 +24,7 @@
   width:75%;
   margin: 0 auto;
   background-color:rgb(186,213,171);
+  font-size:1.2vw;
 }
 
 .outer {
@@ -50,8 +53,4 @@
  color:red;
  font-size:2.0vw;
  border-radius:20px;
-}
-
-.rowTable:hover { 
-  background-color: rgb(153, 204, 255);
 }

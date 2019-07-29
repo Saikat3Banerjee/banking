@@ -1,4 +1,4 @@
-<div class="container">
+
 <mat-sidenav-container fullscreen>
         <mat-sidenav mode="side" opened>
            
@@ -7,8 +7,11 @@
             
         </mat-sidenav>
         <mat-sidenav-content>
-
-                <h1>Add Recipient</h1>
+                <div class="outer">
+                        <div class="middle">
+                          <div class="inner">
+                            <div class="container">    
+                    <h1>Add Recipient</h1>
 
                 <form [formGroup]="addRecipientForm" (ngSubmit)="addRecipientFormHandler()" >
                 
@@ -41,6 +44,12 @@
                 
                 
                  <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
                </mat-sidenav-content>
                </mat-sidenav-container>
-               </div>
+      
+               
+            

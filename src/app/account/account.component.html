@@ -1,6 +1,6 @@
 <table class="accountTable" >
-    <tr >
-<td style="width:25%; text-align: center;">{{type}}</td>
+    <tr (click)="getTransfers(Account.account_number)" >
+<td style="width:25%; text-align: center;">{{Account.account_type}}</td>
 <td style="width:50%; text-align: center;">{{Account.account_number}}</td>
 <td style="width:25%; text-align: right;">${{Account.balance}}</td>
 </tr>

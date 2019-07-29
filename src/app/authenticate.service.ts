@@ -55,11 +55,11 @@ getToken()
 
 getAccounts(token :string)
 {
-return this.http.get('http://10.173.200.170:3000/axle/getAccounts',{headers: {Authorization: token} })
+return this.http.get('http://10.173.200.170:3000/axle/getAccounts',{headers: {Authorization: token} });
 }
 getRecipients(token :string)
 {
-return this.http.get('http://10.173.200.170:3000/axle/getRecipients',{headers: {Authorization: token} })
+return this.http.get('http://10.173.200.170:3000/axle/getRecipients',{headers: {Authorization: token} });
 }
 
 transfer( transfer :any, token :any)
@@ -89,4 +89,41 @@ addRecipient(receiver :any, token :any)
   )
   return request
 }
+
+freezeAccounts(token :any)
+{
+
+  const base=this.http.get('http://10.173.200.170:3000/axle/freezeAccounts',{headers: {Authorization: token} });
+  const request = base.pipe(
+    map( (data :any)=> {
+      return data
+    })
+  )
+  return request
+}
+
+getTransfers(account :any, token :any)
+{
+
+  const base=this.http.post('http://10.173.200.170:3000/axle/getTransfers ',account ,{headers: {Authorization: token} });
+  const request = base.pipe(
+    map( (data :any)=> {
+      return data
+    })
+  )
+  return request
+}
+
+getOneTransfer(transferId :any, token :any)
+{
+
+  const base=this.http.post('http://10.173.200.170:3000/axle/getOneTransfer',transferId ,{headers: {Authorization: token} });
+  const request = base.pipe(
+    map( (data :any)=> {
+      return data
+    })
+  )
+  return request
+}
+
 }

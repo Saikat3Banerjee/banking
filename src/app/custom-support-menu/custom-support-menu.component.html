@@ -1,0 +1,103 @@
+<div class="outer">
+        <div class="middle">
+          <div class="inner">
+            <div class="container">
+<div id="returnMessage" *ngIf="returnMessage" [innerHTML]="returnMessage" class="returnMessage" ></div>
+<div *ngIf="!(token)">
+<form [formGroup]="logInForm" (ngSubmit)="logInFormHandler()" >
+                
+                   
+      <!--  <div id="returnMessage" [innerHTML]="returnMessage" style="border: 1px red;"></div>-->
+        <div *ngIf="UserFinder" >
+
+       <mat-form-field class="input-full-width" >
+        <input matInput formControlName="username" name="username" placeholder="Username" /> </mat-form-field><br>
+       
+        Find User by email? <a type="button"  (click)="changeUserFinder()"  style="text-decoration: underline;">Find User By Email</a>
+            
+        </div>
+
+        <div *ngIf="!(UserFinder)">
+            <mat-form-field class="input-full-width">
+                    <input matInput formControlName="email" name="email" placeholder="Email" /></mat-form-field><br>
+                   
+                    Find User by username? <a type="button" (click)="changeUserFinder()" style="text-decoration: underline;">Find User By Username</a>
+                            
+                </div>
+
+                
+
+    <button mat-raised-button>Find User</button><br /> <br /> <br />
+
+    <button mat-raised-button routerLink="/register" class="navbarButton">Register User</button>
+    </form>
+
+</div>
+
+<div *ngIf="User">
+Username: {{User.username}} <br />
+Email: {{User.email}} <br />
+
+<div *ngIf="AccountList">
+    Account Status : <span [innerHTML]="AccountsStatus"></span>
+</div>
+<div *ngIf="CheckingAccounts">      
+        <h2>Checking</h2>   
+  <table class="accountTable" style=" background-color:rgb(233,167,119);">
+          <tr>
+              <td style="width:25%; text-align: center;">Account Type</td>
+              <td style="width:50%; text-align: center;">Account Number</td>
+              <td style="width:25%; text-align: right;">Balance</td>
+          </tr>
+        </table>
+  
+          <div *ngFor= "let Account of CheckingAccounts"  >        
+           <app-account *ngIf="CheckingAccounts" [Account]="Account"></app-account>
+          </div>
+                   
+      </div>  
+
+      
+      <div *ngIf="SavingAccounts">
+          
+          <h2>Saving</h2>      
+          <table class="accountTable" style=" background-color:rgb(233,167,119);">
+                  <tr>
+                      <td style="width:25%; text-align: center;">Account Type</td>
+                      <td style="width:50%; text-align: center;">Account Number</td>
+                      <td style="width:25%; text-align: right;">Balance</td>
+                  </tr>
+                </table>
+          
+                  <div *ngFor= "let Account of SavingAccounts"  >        
+                   <app-account *ngIf="SavingAccounts" [Account]="Account"></app-account>
+                  </div>
+                           
+              </div> 
+              <br />
+
+              <br />
+              <a mat-raised-button class="actionButton" (click)="UnFreezeAccounts()" style="background-color:rgb(233,167,119);width:35%;font-size:2.0vw;">UnFreeze Accounts </a> 
+             
+             <a mat-raised-button class="actionButton" (click)="freezeAccounts()" style="background-color:rgb(233,167,119);width:35%;font-size:2.0vw;">Freeze Accounts </a>
+             
+             <a mat-raised-button class="actionButton" (click)="createAccount(1)" style="background-color:rgb(233,167,119);width:35%;font-size:2.0vw;">Create Checking Account </a>
+             
+             <a mat-raised-button class="actionButton" (click)="createAccount(0)" style="background-color:rgb(233,167,119);width:35%;font-size:2.0vw;">Create Saving Account </a>
+
+             <form [formGroup]="deleteAccountForm" style="width: 100%;"(ngSubmit)="deleteAccountFormHandler()">
+             <h2>Delete Account</h2>
+
+             <mat-form-field style="width: 40%;">
+                    <mat-select [(value)]="selected" style="width: 100%;" formControlName="account_number">
+                        <mat-option *ngFor="let Account of AccountList" value={{Account.account_number}}>{{Account.account_type}}  {{Account.account_number}}: ${{Account.balance}}</mat-option>
+                     </mat-select>
+                    </mat-form-field>  
+                    <br />
+                    <button mat-raised-button  style="background-color:rgb(233,167,119);width:25%;font-size:2.0vw;">Delete Account</button> 
+                </form>
+</div>
+</div>
+</div>
+</div>
+</div>
