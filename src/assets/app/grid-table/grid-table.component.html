@@ -1,0 +1,41 @@
+
+
+                        <div class="container">
+
+
+
+                                <div id="returnMessage" [innerHTML]="returnMessage" *ngIf="returnMessage" class="returnMessage"></div>
+<br />
+<form [formGroup]="selectTable" (ngSubmit)=getTable()>
+                        <mat-form-field class="input-full-width">
+                            <mat-label>Select a Table</mat-label>
+                            <mat-select [(value)]="selected" formControlName="table">
+                                <mat-option *ngFor="let table of allTables" value={{table}}>{{table}}</mat-option>
+                             </mat-select>
+                            </mat-form-field>
+                            <br />
+                            <button mat-raised-button  >Get Data</button>  
+                        </form>
+<br /> <br />
+                        <div *ngIf="data">
+
+                            <table class="gridTable">
+                                <tr>
+                                        <th *ngFor="let key of keys" >
+                                                {{key}}
+                                            </th> 
+                                </tr>
+                                <tr *ngFor="let row of data; index as index;" >
+                                    <td *ngFor="let key of keys">
+                                                   <input type='text'  [(ngModel)]='row[key]'/>
+                                                   
+                                    </td>
+                                    <td>
+                                            <button mat-raised-button (click)='alterTable(index)' > Submit Changes </button>    
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+
+                        </div>

@@ -1,0 +1,40 @@
+
+<mat-toolbar>User Registration</mat-toolbar>
+
+<form [formGroup]="registerForm" (ngSubmit)="registerFormHandler()">
+
+
+ <div id="returnMessage" [innerHTML]="returnMessage"></div>
+ <mat-form-field>
+   <input matInput formControlName="username" name="username" placeholder="Username" />
+   <mat-hint align="end">Min 8 Characters</mat-hint>
+<br />
+ </mat-form-field><br>
+
+ <mat-form-field>
+   <input matInput formControlName="password" type ="password"  placeholder="Password" />
+   <mat-hint align="end">Min 5 Characters must include at least one letter and symbol</mat-hint>
+
+ </mat-form-field><br>
+
+ <mat-form-field>
+   <input matInput formControlName="password" type ="password"  placeholder="Re-type Password" />
+ </mat-form-field><br>
+
+ <mat-form-field>
+   <input matInput formControlName="email" type ="email"  placeholder="Email Id" />
+ </mat-form-field><br>
+
+ <mat-form-field>
+   <input matInput formControlName="SSN_TIN" type ="password"  placeholder="SSN or TIN" />
+ </mat-form-field><br>
+
+ <button mat-button color="warn">register User</button><br />
+
+</form>
+<br /> 
+<br />
+<br />
+<a mat-raised-button routerLink="/customerSupport" class="navbarButton">Find User </a>
+
+<router-outlet></router-outlet>

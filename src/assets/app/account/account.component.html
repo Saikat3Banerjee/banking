@@ -1,0 +1,8 @@
+<table class="accountTable" >
+    <tr (click)="getTransfers(Account.account_number)" >
+<td style="width:25%; text-align: center; font-size:1vw;">{{Account.account_type}}</td>
+<td style="width:50%; text-align: center; font-size:1vw;">{{Account.account_number}}</td>
+<td style="width:25%; text-align: right; font-size:1vw;">${{Account.balance}}</td>
+</tr>
+</table>
+
