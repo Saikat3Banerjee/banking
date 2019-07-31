@@ -1,0 +1,56 @@
+.button.row button,
+.button-row a {
+  
+  width:10%;
+}
+.actionButton
+{
+    width:10%;
+    margin: 2%;
+}
+.accountTable
+{
+  width: 100%; 
+  margin:0 auto;
+   border-bottom: 1px solid #000; 
+   font-size:2vw;
+}
+
+.container
+{
+  border: 1px solid black;
+  border-radius:4px;
+  padding:1%;
+  width:75%;
+  margin: 0 auto;
+  background-color:rgb(186,213,171);
+  font-size:1.2vw;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  /*whatever width you want*/
+}
+.returnMessage
+{
+ border: 1px solid red;
+ color:red;
+ font-size:2.0vw;
+ border-radius:20px;
+}
