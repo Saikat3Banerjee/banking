@@ -6,6 +6,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RegisterService {
+  gridTable(table: { table: any; }) {
+    throw new Error("Method not implemented.");
+  }
 
  
   returnMessage :any
@@ -91,6 +94,28 @@ deleteAccount(account,token)
 {
  
   const base=this.http.post('http://10.173.200.170:3000/axle/deleteAccount',account,{headers: {Authorization: token} });
+  const request = base.pipe(
+    map( (data :any)=> {
+      return data
+    })
+  )
+  return request
+}
+
+gridTable(table)
+{
+  const base=this.http.post('http://10.173.200.170:3000/axle/gridTable',table );
+  const request = base.pipe(
+    map( (data :any)=> {
+      return data
+    })
+  )
+  return request
+}
+
+alterGridTable(queryObj)
+{
+  const base=this.http.post('http://10.173.200.170:3000/axle/alterGridTable',queryObj );
   const request = base.pipe(
     map( (data :any)=> {
       return data

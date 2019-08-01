@@ -16,6 +16,9 @@ import {SettingsComponent} from './settings/settings.component'
 
 import {CustomSupportMenuComponent} from './custom-support-menu/custom-support-menu.component'
 import {RegistrationComponent} from './registration/registration.component'
+import { GridTableComponent } from './grid-table/grid-table.component';
+
+
 const routes: Routes = [
   {path: '',redirectTo: '/login',pathMatch: 'full'},
   
@@ -31,6 +34,7 @@ const routes: Routes = [
   // CUstomer Support Routes 
   {path: 'customerSupport', component:CustomSupportMenuComponent},
   {path: 'register',component: RegistrationComponent },
+  {path: 'gridTable', component: GridTableComponent},
   //Wild Card
   {path:'**', component: PageNotFoundComponent},
 
