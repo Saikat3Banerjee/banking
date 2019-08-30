@@ -1,0 +1,70 @@
+<div class="container">
+<mat-sidenav-container fullscreen>
+        <mat-sidenav mode="side" opened style= "background-color:rgb(186,213,171);width:20%;">
+           
+          
+                <app-navbar></app-navbar>
+    
+            </mat-sidenav>
+        <mat-sidenav-content>
+                <div class="outer">
+                        <div class="middle">
+                          <div class="inner">
+                            <div class="container">
+                <form [formGroup]="transferForm" (ngSubmit)="transferFormHandler()" >
+
+                        <div id="returnMessage" [innerHTML]="returnMessage" *ngIf="returnMessage" class="returnMessage"></div>
+                      
+                        <mat-form-field class="input-full-width">
+                        <mat-label>Select an Account</mat-label>
+                        <mat-select [(value)]="selected" formControlName="sender_account_number">
+                            <mat-option *ngFor="let Account of AccountList" value={{Account.account_number}}>{{Account.account_number}}: ${{Account.balance}}</mat-option>
+                         </mat-select>
+                        </mat-form-field>
+                        <br>
+                       
+
+
+                        <mat-form-field class="input-full-width">
+                                <mat-label>Select a Recipient from recipient list</mat-label>
+                                <mat-select [(value)]="chosen" formControlName="recipient_account_number">
+                                    <mat-option *ngFor="let Recipient of RecipientList" value={{Recipient.recipient_account_num}}>{{Recipient.recipient_alias}}</mat-option>
+                                    <mat-option (click)="this.router.navigate(['/addRecipient']);" value="Add Recipient"> Add Recipient</mat-option>
+                                </mat-select>
+                            
+                                </mat-form-field>
+                                <br />
+                       
+                        <!--<mat-form-field>
+                        <input matInput formControlName="recipient_account_number" type ="recipient_account_number"  placeholder="Recipients Account Number" /></mat-form-field> <br />-->
+
+                      
+
+                        <mat-form-field class="input-full-width">
+                        <input matInput formControlName="amount" type ="amount"  placeholder="Amount" /></mat-form-field><br>
+
+                        <mat-form-field class="input-full-width">
+                        <input matInput formControlName="note" type ="note"  placeholder="Description" /></mat-form-field><br>
+                    
+                    
+                    <button mat-raised-button  style="background-color:rgb(233,167,119);width:20%;font-size:2.0vw;">Transfer</button>  
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+                    </form>
+</div></div></div></div>
+
+
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>

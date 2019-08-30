@@ -1,0 +1,117 @@
+
+
+<mat-sidenav-container fullscreen>    
+        <mat-sidenav mode="side" opened style= "background-color:rgb(186,213,171);width:20%;">
+           <app-navbar></app-navbar>
+        </mat-sidenav>
+
+
+        <mat-sidenav-content>
+
+            <div class="outer">
+                <div class="middle">
+                  <div class="inner">
+                    <div class="container">
+        
+        
+                        <div *ngIf="AccountList==[]">
+                          <p> No account available!</p>
+                        </div>
+                            <div *ngIf="CheckingAccounts">      
+                                <h2>Checking</h2>   
+                          <table class="accountTable" style=" background-color:rgb(233,167,119);">
+                                  <tr>
+                                      <td style="width:25%; text-align: center;">Account Type</td>
+                                      <td style="width:50%; text-align: center;">Account Number</td>
+                                      <td style="width:25%; text-align: right;">Balance</td>
+                                  </tr>
+                                </table>
+                          
+                                  <div *ngFor= "let Account of CheckingAccounts"  >  
+                                      <table  class="accountTable" *ngIf="Account">
+                                          <tr class="rowTable" (click)="getTransfers(Account)" >
+                                      <td style="width:25%; text-align: center;">{{Account.account_type}}</td>
+                                      <td style="width:50%; text-align: center;">{{Account.account_number}}</td>
+                                      <td style="width:25%; text-align: right;">${{Account.balance}}</td>
+                                      </tr>
+                                      </table>      
+
+                                  </div>
+                                           
+                              </div>  
+
+                              
+                              <div *ngIf="SavingAccounts">
+                                  
+                                  <h2>Saving</h2>      
+                                  <table class="accountTable" style=" background-color:rgb(233,167,119);">
+                                          <tr>
+                                              <td style="width:25%; text-align: center;">Account Type</td>
+                                              <td style="width:50%; text-align: center;">Account Number</td>
+                                              <td style="width:25%; text-align: right;">Balance</td>
+                                          </tr>
+                                        </table>
+
+
+                                        <!--
+<app-account *ngIf="SavingAccounts" [Account]="Account"></app-account>
+                                   <app-account *ngIf="CheckingAccounts" [Account]="Account"></app-account>
+                                        -->
+                                          <div *ngFor= "let Account of SavingAccounts"  >        
+                                              <table class="accountTable" *ngIf="Account" >
+                                                  <tr class="rowTable" (click)="getTransfers(Account)" >
+                                              <td style="width:25%; text-align: center;">{{Account.account_type}}</td>
+                                              <td style="width:50%; text-align: center;">{{Account.account_number}}</td>
+                                              <td style="width:25%; text-align: right;">${{Account.balance}}</td>
+                                              </tr>
+                                              </table>
+                                           
+                                          </div>
+                                                   
+                                      </div> 
+                                      <br />
+                                      <div id="returnMessage" *ngIf="returnMessage" [innerHTML]="returnMessage" class="returnMessage" ></div>
+                                      <br />
+                                      <a mat-raised-button (click)="freezeAccounts()">Freeze Accounts </a>
+
+                                      <br /> <br/> <br />
+
+
+                                      
+                                      <div class="transactions" *ngIf="Transfers">
+                                        <h2> Transaction history for account: </h2> 
+                                        <h2>{{TransferAccount.account_number}}: ${{TransferAccount.balance}}</h2>
+                                        
+                                        <br /> <br />
+                                          <table class="accountTable" style=" background-color:rgb(233,167,119);">
+                                              <tr>
+                                                  <td style="width:25%; text-align: center;">sender account</td>
+                                                  <td style="width:25%; text-align: center;">recipient account</td>
+                                                  <td style="width:25%; text-align: right;">Amount</td>
+                                                  <td style="width:25%; text-align: center;">Note</td>
+                                              </tr>
+                                            </table>
+
+                                            <div *ngFor= "let Transfer of Transfers"  >        
+                                              
+                                                <table class="accountTable" >
+                                                    <tr class="rowTable"(click)="getTransactionDetails(Transfer)">
+                                                <td style="width:25%; text-align: center;">{{Transfer.sender_account_num}}</td>
+                                                <td style="width:25%; text-align: center;">{{Transfer.recipient_account_num}}</td>
+                                                <td style="width:25%; text-align: right;">{{Transfer.sender_account_num==TransferAccount.account_number? ("-$"+Transfer.amount):("+$"+Transfer.amount)}}</td>
+                                                <td style="width:25%; text-align: center;">{{Transfer.note.substring(0,10)}}...</td>
+                                                </tr>
+                                                </table>
+
+                                               </div>
+
+                                      </div>
+                            </div>
+                       </div>
+                    </div>
+                  </div>
+                
+                  
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    
